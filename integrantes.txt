@@ -1,0 +1,9 @@
+FluxIA | Global Solution CitizenTech 2026.2 | Physical Computing: IoT & IoB
+Engenharia de Software, 3º ano
+
+Integrantes
+João Victor Alvarenga Cansanção, RM93752
+Wesley Zimmer, RM560264
+
+Projeto no Wokwi: https://wokwi.com/projects/480996697843558401
+Vídeo demonstrativo: FluxIA_Physical_Computing.mp4 (neste repositório)

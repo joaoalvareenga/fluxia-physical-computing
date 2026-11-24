@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "author": "João Victor Alvarenga Cansanção e Wesley Zimmer",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-led", "id": "led_verm", "top": -70, "left": 220, "attrs": { "color": "red", "label": "Vermelho" } },
+    { "type": "wokwi-led", "id": "led_amar", "top": -70, "left": 270, "attrs": { "color": "yellow", "label": "Amarelo" } },
+    { "type": "wokwi-led", "id": "led_verd", "top": -70, "left": 320, "attrs": { "color": "green", "label": "Verde" } },
+    { "type": "wokwi-resistor", "id": "r_verm", "top": 30, "left": 200, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r_amar", "top": 30, "left": 250, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r_verd", "top": 30, "left": 300, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-pushbutton", "id": "bt_entrada", "top": 150, "left": 220, "attrs": { "color": "green", "label": "Sensor entrada", "bounce": "0" } },
+    { "type": "wokwi-pushbutton", "id": "bt_saida", "top": 220, "left": 220, "attrs": { "color": "blue", "label": "Sensor saida", "bounce": "0" } },
+    { "type": "wokwi-slide-switch", "id": "sw_modo", "top": 290, "left": 230, "attrs": { "label": "Modo FluxIA / Referencia", "value": "1" } },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -60, "left": -330, "attrs": { "pins": "i2c" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "esp:25", "r_verm:2", "red", [] ],
+    [ "r_verm:1", "led_verm:A", "red", [] ],
+    [ "led_verm:C", "esp:GND.2", "black", [] ],
+
+    [ "esp:26", "r_amar:2", "gold", [] ],
+    [ "r_amar:1", "led_amar:A", "gold", [] ],
+    [ "led_amar:C", "esp:GND.2", "black", [] ],
+
+    [ "esp:27", "r_verd:2", "green", [] ],
+    [ "r_verd:1", "led_verd:A", "green", [] ],
+    [ "led_verd:C", "esp:GND.2", "black", [] ],
+
+    [ "esp:18", "bt_entrada:1.l", "green", [] ],
+    [ "bt_entrada:2.l", "esp:GND.3", "black", [] ],
+
+    [ "esp:19", "bt_saida:1.l", "blue", [] ],
+    [ "bt_saida:2.l", "esp:GND.3", "black", [] ],
+
+    [ "esp:23", "sw_modo:2", "orange", [] ],
+    [ "sw_modo:1", "esp:GND.3", "black", [] ],
+
+    [ "lcd:GND", "esp:GND.1", "black", [] ],
+    [ "lcd:VCC", "esp:5V", "red", [] ],
+    [ "lcd:SDA", "esp:21", "purple", [] ],
+    [ "lcd:SCL", "esp:22", "violet", [] ]
+  ],
+  "dependencies": {}
+}
